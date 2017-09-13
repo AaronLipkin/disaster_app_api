@@ -46,12 +46,12 @@ class SurvivorsController < ApplicationController
 
   # DELETE /survivors/1
   def destroy
-    distance = (Float(@survivor.lat) - Float(params[:res_lat])) + (Float(@survivor.lng) - Float(params[:res_lng]))
+    distance = (Float(@survivor.lat) - Float(params[:res_lat])).abs + (Float(@survivor.lng) - Float(params[:res_lng])).abs
     if distance * 69 < 2
       @survivor.destroy
-      render json: {code: 200}
+      render json: {code: 200, response: ""}
     else
-      render json: {work: "nope"}
+      render json: {response: "You must be within 2 miles to mark as safe."}
     end
   end
 

@@ -3205,3 +3205,36 @@ Processing by SurvivorsController#distanced as HTML
 Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms)
 
 
+Started DELETE "/survivors/1" for 127.0.0.1 at 2017-09-13 03:18:51 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurvivorsController#destroy as */*
+  Parameters: {"res_lat"=>"30.267153", "res_lng"=>"-98.743061", "id"=>"1"}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/survivors/distanced" for 127.0.0.1 at 2017-09-13 03:19:29 -0500
+Processing by SurvivorsController#show as */*
+  Parameters: {"id"=>"distanced"}
+  [1m[36mSurvivor Load (1.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 16ms (ActiveRecord: 8.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Survivor with 'id'=distanced):
+  
+app/controllers/survivors_controller.rb:61:in `set_survivor'
+Started POST "/survivors/distanced" for 127.0.0.1 at 2017-09-13 03:20:01 -0500
+Processing by SurvivorsController#distanced as */*
+  Parameters: {"res_lat"=>"30.267153", "res_lng"=>"-98.743061"}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors"[0m
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 03:23:34 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/aaronlipkin/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/aaronlipkin/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
